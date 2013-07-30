@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Campus: AngularJS</title>
+<meta name="description" content="Angular directive to bind two input fields, one for a date and one for time, to a single Date object">
+<meta name="author" content="Eduardo Garcia Espinosa">
+
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+<script src="angular-datetime.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+angular.module('demo', ['ngDateTime'])
+	.controller('DemoCtrl', function($scope) {
+		$scope.date = new Date();
+	});
+</script>
+
+<div class="container" ng-app="demo" ng-controller="DemoCtrl">
+	<ng-date-time model="date"></ng-date-time>
+	<pre><code>date = {{ date | moment }}</code></pre>
+</div>
+</body>
+</html>
